@@ -1,4 +1,4 @@
-# SMBIOS (Almost) Standalone Implementation
+# SMBIOS (Almost) Standalone Library
 
 Use this library to parse SMBIOS data.
 Reference spec: [link](https://www.dmtf.org/sites/default/files/standards/documents/DSP0134_3.6.0.pdf)
