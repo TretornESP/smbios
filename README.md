@@ -1,7 +1,7 @@
 # SMBIOS (Almost) Standalone Implementation
 
 Use this library to parse SMBIOS data.
-Reference spec: ![Spec](https://www.dmtf.org/sites/default/files/standards/documents/DSP0134_3.6.0.pdf)
+Reference spec: [link](https://www.dmtf.org/sites/default/files/standards/documents/DSP0134_3.6.0.pdf)
 
 ## Current support
 
@@ -33,96 +33,88 @@ After this call, you can use every function defined in `smbios_interface.h`
 
 ## Available functions:
 
-    char *    get_smbios_bios_vendor();
-    char *    get_smbios_bios_version();
-    char *    get_smbios_bios_release_date();
+```c
+    char *      get_smbios_bios_vendor();
+    char *      get_smbios_bios_version();
+    char *      get_smbios_bios_release_date();
+        
+    uint8_t *   get_smbios_bios_major_release();
+    uint8_t *   get_smbios_bios_minor_release();
+    uint8_t *   get_smbios_bios_embedded_controller_major_release();
+    uint8_t *   get_smbios_bios_embedded_controller_minor_release();
     
-    void set_smbios_bios_loaded(uint8_t);
-    void set_smbios_system_loaded(uint8_t);
-    void set_smbios_cpu_loaded(uint8_t);
+    uint8_t     get_smbios_bios_not_supports_characteristics();
+    uint8_t     get_smbios_bios_supports_isa();
+    uint8_t     get_smbios_bios_supports_mca();
+    uint8_t     get_smbios_bios_supports_pci();
+    uint8_t     get_smbios_bios_supports_pnp();
+    uint8_t     get_smbios_bios_supports_apm();
+    uint8_t     get_smbios_bios_supports_edd();
+    uint8_t     get_smbios_bios_supports_escd();
+    uint8_t     get_smbios_bios_supports_eisa();
+    uint8_t     get_smbios_bios_supports_vl_vesa();
+    uint8_t     get_smbios_bios_supports_boot_from_cd();
+    uint8_t     get_smbios_bios_supports_selectable_boot();
+    uint8_t     get_smbios_bios_supports_acpi();
+    uint8_t     get_smbios_bios_supports_usb_legacy();
+    uint8_t     get_smbios_bios_supports_agp();
+    uint8_t     get_smbios_bios_supports_bios_boot();
+    uint8_t     get_smbios_bios_supports_uefi();
+    uint8_t     get_smbios_bios_is_virtual_machine();
     
-    uint8_t get_smbios_bios_loaded();
-    uint8_t get_smbios_system_loaded();
-    uint8_t get_smbios_cpu_loaded();
+    char *      get_smbios_system_manufacturer();
+    char *      get_smbios_system_product_name();
+    char *      get_smbios_system_version();
+    char *      get_smbios_system_serial_number();
+    char *      get_smbios_system_sku_number();
+    char *      get_smbios_system_family();
+    uint8_t *   get_smbios_system_uuid();
+    uint8_t *   get_smbios_system_wake_up_type();
     
-    uint8_t * get_smbios_bios_major_release();
-    uint8_t * get_smbios_bios_minor_release();
-    uint8_t * get_smbios_bios_embedded_controller_major_release();
-    uint8_t * get_smbios_bios_embedded_controller_minor_release();
+    char *      get_smbios_cpu_socket_designation();
+    uint8_t *   get_smbios_cpu_processor_type();
+    uint8_t *   get_smbios_cpu_processor_family();
+    char *      get_smbios_cpu_processor_manufacturer();
+    uint64_t *  get_smbios_cpu_processor_id();
+    char *      get_smbios_cpu_processor_version();
     
-    uint8_t get_smbios_bios_not_supports_characteristics();
-    uint8_t get_smbios_bios_supports_isa();
-    uint8_t get_smbios_bios_supports_mca();
-    uint8_t get_smbios_bios_supports_pci();
-    uint8_t get_smbios_bios_supports_pnp();
-    uint8_t get_smbios_bios_supports_apm();
-    uint8_t get_smbios_bios_supports_edd();
-    uint8_t get_smbios_bios_supports_escd();
-    uint8_t get_smbios_bios_supports_eisa();
-    uint8_t get_smbios_bios_supports_vl_vesa();
-    uint8_t get_smbios_bios_supports_boot_from_cd();
-    uint8_t get_smbios_bios_supports_selectable_boot();
-    uint8_t get_smbios_bios_supports_acpi();
-    uint8_t get_smbios_bios_supports_usb_legacy();
-    uint8_t get_smbios_bios_supports_agp();
-    uint8_t get_smbios_bios_supports_bios_boot();
-    uint8_t get_smbios_bios_supports_uefi();
-    uint8_t get_smbios_bios_is_virtual_machine();
+    uint8_t     get_smbios_cpu_voltage_legacy();
+    uint8_t     get_smbios_cpu_voltage_5V();
+    uint8_t     get_smbios_cpu_voltage_3_3V();
+    uint8_t     get_smbios_cpu_voltage_2_9V();
     
-    char *   get_smbios_system_manufacturer();
-    char *   get_smbios_system_product_name();
-    char *   get_smbios_system_version();
-    char *   get_smbios_system_serial_number();
-    char *   get_smbios_system_sku_number();
-    char *   get_smbios_system_family();
-    uint8_t * get_smbios_system_uuid();
-    uint8_t * get_smbios_system_wake_up_type();
+    uint16_t *  get_smbios_cpu_external_clock();
+    uint16_t *  get_smbios_cpu_max_speed();
+    uint16_t *  get_smbios_cpu_current_speed();
     
-    char * get_smbios_cpu_socket_designation();
-    uint8_t * get_smbios_cpu_processor_type();
-    uint8_t * get_smbios_cpu_processor_family();
-    char * get_smbios_cpu_processor_manufacturer();
-    uint64_t * get_smbios_cpu_processor_id();
-    char * get_smbios_cpu_processor_version();
+    uint8_t     get_smbios_cpu_socket_populated();
+    uint8_t     get_smbios_cpu_enabled();
+    uint8_t     get_smbios_cpu_disabled_by_user();
+    uint8_t     get_smbios_cpu_disabled_by_bios();
+    uint8_t     get_smbios_cpu_idle();
     
-    uint8_t get_smbios_cpu_voltage_legacy();
-    uint8_t get_smbios_cpu_voltage_5V();
-    uint8_t get_smbios_cpu_voltage_3_3V();
-    uint8_t get_smbios_cpu_voltage_2_9V();
+    uint8_t *   get_smbios_cpu_processor_upgrade();
+    char *      get_smbios_cpu_serial_number();
+    char *      get_smbios_cpu_asset_tag();
+    char *      get_smbios_cpu_part_number();
+    uint8_t *   get_smbios_cpu_core_count();
+    uint8_t *   get_smbios_cpu_core_enabled();
+    uint8_t *   get_smbios_cpu_thread_count();
     
-    uint16_t * get_smbios_cpu_external_clock();
-    uint16_t * get_smbios_cpu_max_speed();
-    uint16_t * get_smbios_cpu_current_speed();
-    
-    uint8_t get_smbios_cpu_socket_populated();
-    uint8_t get_smbios_cpu_enabled();
-    uint8_t get_smbios_cpu_disabled_by_user();
-    uint8_t get_smbios_cpu_disabled_by_bios();
-    uint8_t get_smbios_cpu_idle();
-    
-    uint8_t * get_smbios_cpu_processor_upgrade();
-    char * get_smbios_cpu_serial_number();
-    char * get_smbios_cpu_asset_tag();
-    char * get_smbios_cpu_part_number();
-    uint8_t * get_smbios_cpu_core_count();
-    uint8_t * get_smbios_cpu_core_enabled();
-    uint8_t * get_smbios_cpu_thread_count();
-    
-    uint8_t get_smbios_cpu_supports_64_bits();
-    uint8_t get_smbios_cpu_supports_multicore();
-    uint8_t get_smbios_cpu_supports_hardware_thread();
-    uint8_t get_smbios_cpu_supports_execute_protection();
-    uint8_t get_smbios_cpu_supports_enhanced_virtualization();
-    uint8_t get_smbios_cpu_supports_power_management();
-    uint8_t get_smbios_cpu_supports_128_bits();
-    uint8_t get_smbios_cpu_is_arm_soc();
-    
-    uint16_t * get_smbios_cpu_processor_family2(); 
-    uint16_t * get_smbios_cpu_core_count2();
-    uint16_t * get_smbios_cpu_core_enabled2();
-    uint16_t * get_smbios_cpu_thread_count2();
-    
-    uint16_t * get_smbios_cpu_thread_enabled();
+    uint8_t     get_smbios_cpu_supports_64_bits();
+    uint8_t     get_smbios_cpu_supports_multicore();
+    uint8_t     get_smbios_cpu_supports_hardware_thread();
+    uint8_t     get_smbios_cpu_supports_execute_protection();
+    uint8_t     get_smbios_cpu_supports_enhanced_virtualization();
+    uint8_t     get_smbios_cpu_supports_power_management();
+    uint8_t     get_smbios_cpu_supports_128_bits();
+    uint8_t     get_smbios_cpu_is_arm_soc();
+    uint16_t *  get_smbios_cpu_processor_family2(); 
+    uint16_t *  get_smbios_cpu_core_count2();
+    uint16_t *  get_smbios_cpu_core_enabled2();
+    uint16_t *  get_smbios_cpu_thread_count2();
+    uint16_t *  get_smbios_cpu_thread_enabled();
+```
 
 ## Request to improve
 

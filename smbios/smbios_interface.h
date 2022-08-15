@@ -121,11 +121,6 @@ void init_smbios_interface(void * smbios32_address, void * smbios64_address);
 /* **************** INTERNAL FUNCTIONS DO NOT USE ****************** */
 void insert_smbios_data(struct smbios_data_entry *, void *, uint16_t);
 void insert_smbios_bitfield(struct smbios_bitfield_entry *, void *, uint8_t, uint8_t);
-/* ************************************* */
-
-char *    get_smbios_bios_vendor();
-char *    get_smbios_bios_version();
-char *    get_smbios_bios_release_date();
 
 void set_smbios_bios_loaded(uint8_t);
 void set_smbios_system_loaded(uint8_t);
@@ -134,6 +129,12 @@ void set_smbios_cpu_loaded(uint8_t);
 uint8_t get_smbios_bios_loaded();
 uint8_t get_smbios_system_loaded();
 uint8_t get_smbios_cpu_loaded();
+
+/* ************************************* */
+
+char *    get_smbios_bios_vendor();
+char *    get_smbios_bios_version();
+char *    get_smbios_bios_release_date();
 
 uint8_t * get_smbios_bios_major_release();
 uint8_t * get_smbios_bios_minor_release();
